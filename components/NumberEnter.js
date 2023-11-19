@@ -1,7 +1,7 @@
 import { Image } from "expo-image";
 import {Text,View,TouchableOpacity,StyleSheet,TextInput} from 'react-native'
-import { useFonts } from 'expo-font';
 import Logo from '../assets/Logo.svg'
+import { useFonts } from 'expo-font';
 import { useCallback } from "react";
 import HeroPic from '../assets/SecondScreenLogo.svg'
 export default function NumberEnter(){
