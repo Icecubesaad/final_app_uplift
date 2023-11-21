@@ -1,6 +1,5 @@
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { Image } from "expo-image";
-import Button from "./extras/button";
 
 export default function IntroScreens({item}) {
   return (
@@ -17,10 +16,11 @@ const styles = StyleSheet.create({
     height: 300,
   },
   Container: {
-    height: "100vh",
+    height: "100%",
     backgroundColor: "#2d1b46",
     display: "flex",
     justifyContent: "center",
+    width:"100%",
     alignItems: "center",
   },
 });

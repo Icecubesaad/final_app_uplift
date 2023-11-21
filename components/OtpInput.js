@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useRef,useCallback } from "react";
 import {
   View,
   TextInput,
@@ -6,22 +6,23 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import Svg, { LinearGradient, Stop } from 'react-native-svg';
-
 import { useFonts } from "expo-font";
 import { SafeAreaView } from "react-native-web";
+
 const OtpInput = () => {
   const [otp, setOtp] = useState(["", "", "", ""]);
+  const inputs = useRef([]);
+
   const handleOtpChange = (value, index) => {
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
-    // Move focus to the next box if the current one has a value
+
     if (value && index < newOtp.length - 1) {
-      this.inputs[index + 1].focus();
+      inputs.current[index + 1].focus();
     }
   };
-  const inputs = [];
+
   const [fontsLoaded] = useFonts({
     "Inter-Light": require("../assets/fonts/Inter-Light.ttf"),
     "Roboto-Flex": require("../assets/fonts/RobotoFlex-Regular.ttf"),
@@ -38,16 +39,16 @@ const OtpInput = () => {
   if (!fontsLoaded) {
     return null;
   }
+
   return (
-    <SafeAreaView>
-      <View style={styles.mainContainer}>
-        <Text
+    <View style={styles.mainContainer}>
+       <Text
           style={{
             color: "#C0A7D8",
             fontFamily: "MontBold",
             fontWeight: 400,
             fontSize: 30,
-            letterSpacing: "-1.68px",
+            letterSpacing: -1.68,
             textAlign: "center",
             marginTop: 10,
             marginBottom: 10,
@@ -66,22 +67,22 @@ const OtpInput = () => {
           Please enter the 4 digit code sent to {"\n"}{" "}
           <Text style={{ color: "#A47ABF" }}>+971 50 123 4567</Text> through SMS
         </Text>
-        <View style={styles.container}>
-          {otp.map((digit, index) => (
-            <TextInput
-              key={index}
-              style={styles.box}
-              maxLength={1}
-              keyboardType="numeric"
-              onChangeText={(value) => handleOtpChange(value, index)}
-              value={digit}
-              ref={(input) => {
-                inputs[index] = input;
-              }}
-            />
-          ))}
-        </View>
-        <Text style={{ textAlign: "center", color: "white" }}>
+      <View style={styles.container}>
+        {otp.map((digit, index) => (
+          <TextInput
+            key={index}
+            style={styles.box}
+            maxLength={1}
+            keyboardType="numeric"
+            onChangeText={(value) => handleOtpChange(value, index)}
+            value={digit}
+            ref={(input) => {
+              inputs.current[index] = input;
+            }}
+          />
+        ))}
+      </View>
+      <Text style={{ textAlign: "center", color: "white" }}>
           Didn’t recieve a code?{" "}
           <Text style={{ color: "#7C15FF" }}>Resend SMS</Text>
         </Text>
@@ -117,19 +118,18 @@ const OtpInput = () => {
         </TouchableOpacity>
         <Text style={{color:"white",
         marginTop:20,fontFamily:"Mont",fontSize:12,fontWeight:500}}>
-        By continuing you’re indicating that you accept {"\n"} our <Text style={{textDecoration:"underline"}}>Terms of Use</Text> and our <Text style={{textDecoration:"underline"}}>Privacy Policy</Text>
+        By continuing you’re indicating that you accept {"\n"} our <Text>Terms of Use</Text> and our <Text>Privacy Policy</Text>
         </Text>
         
         </View>
-        
-      </View>
-    </SafeAreaView>
+    </View>
   );
 };
+
 const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: "#7440AE",
-    height: "100vh",
+    height: "100%",
     paddingTop: 20,
   },
   container: {
@@ -152,4 +152,5 @@ const styles = StyleSheet.create({
     fontSize: 40,
   },
 });
+
 export default OtpInput;

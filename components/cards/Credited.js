@@ -5,7 +5,7 @@ export default function Credited() {
   return (
     <View
       style={{
-        width: "95%",
+        width: "98%",
         height: 120,
         backgroundColor: "#724D97",
         border: "2px solid white",
@@ -14,7 +14,7 @@ export default function Credited() {
         flexDirection: "row",
       }}
     >
-      <View style={{display:'flex',flexDirection:"column",justifyContent:"center",paddingLeft:10,paddingRight:10}}>
+      <View style={{display:'flex',flexDirection:"column",justifyContent:"center",paddingLeft:10,width:"80%"}}>
         <Text style={{ color: "white" }}>Credit 16.00$</Text>
         <Text style={{ color: "white" }}>2023-19-11 5:33pm</Text>
         <Text style={{ color: "white" }}>
@@ -31,7 +31,7 @@ export default function Credited() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            borderRadius:"100%"
+            borderRadius:999
           }}
         >
             <Text style={{color:"white",fontSize:25}}>₹</Text>

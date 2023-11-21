@@ -7,6 +7,7 @@ import Transaction from "./extras/Transaction";
 import FInalREchargedScreen from "./extras/FinalRechargedScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "./Header";
+import Footer from "./Footer";
 export default function PaymentGateway() {
   const [fontsLoaded] = useFonts({
     "Inter-Light": require("../assets/fonts/Inter-Light.ttf"),
@@ -25,37 +26,38 @@ export default function PaymentGateway() {
   if (!fontsLoaded) {
     return null;
   }
+
   return (
-    <View>
+    <View style={{height:"100%"}}>
       <Header />
       <View style={styles.Container}>
-        
         <View style={styles.ChildContainer}>
           {/* <View style={styles.TextContainer}>
             <Text style={{...styles.ChildContainerText,color:"black"}}>Recharged</Text>
             <Text style={styles.ChildContainerText}>Your Account</Text>
             <Text style={{...styles.ChildContainerText,fontSize:30}}>R ₹ <Text style={{color:"red", fontSize:30}}>0.00</Text></Text>
             </View> */}
-          {/* <PaymentOptions/> */}
+          <PaymentOptions/>
           {/* <Transaction/> */}
-          <FInalREchargedScreen />
+          {/* <FInalREchargedScreen /> */}
         </View>
       </View>
+      <Footer/>
     </View>
   );
 }
 const styles = StyleSheet.create({
   Container: {
-    height: "94vh",
-    backgroundColor: "purple",
+    height: "100%",
+    backgroundColor: "#7440AE",
+    display:"flex",
+    justifyContent:"flex-end"
   },
   ChildContainer: {
-    height: "100%",
-    marginTop: "15vh",
-    backgroundColor: "#A47ABF",
+    height: "90%",
+    backgroundColor:"#C0A7D8",
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
-    paddingTop: 80,
   },
   ChildContainerText: {
     color: "#FFF",

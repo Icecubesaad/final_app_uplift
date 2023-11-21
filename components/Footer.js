@@ -1,70 +1,102 @@
-import { Image } from 'expo-image'
-import {Text,View,StyleSheet} from 'react-native'
-import ProfilePic from '../assets/ProfilePic.svg'
-import Footer_Base from '../assets/Footer.svg'
-import IndianCurrency from '../assets/IndianCurrencyLogo.svg'
-import Tick from '../assets/Tick.svg'
-export default function Footer()
-{
-    return (
-        <View style={styles.MainContainer}>
-            <Image source={Footer_Base} style={styles.BaseContainer} />
-            <View style={{width:"100%",position:"absolute",bottom:"180",flex:1,alignItems:'center'}}>
-            <Image source={ProfilePic} style={{height:"80px",width:"80px"}} />
-            </View>
-            <View style={styles.FooterLayer}>
-                <View style={styles.FooterContainer}><Image source={Tick} style={{width:30,height:30}} /><Text style={{color:"white",fontSize:20}}>Recharged</Text></View>
-                <View style={styles.FooterContainer} ><Image style={styles.FooterLogo} source={IndianCurrency} /><Text style={{color:"white",fontSize:20}}>0.00</Text></View>
-            </View>
+import { Image } from "expo-image";
+import { Text, View, StyleSheet } from "react-native";
+import ProfilePic from "../assets/ProfilePic.svg";
+import Footer_Base from "../assets/Footer.svg";
+import IndianCurrency from "../assets/IndianCurrencyLogo.svg";
+import Tick from "../assets/Tick.svg";
+export default function Footer() {
+  return (
+    <View style={styles.MainContainer}>
+      <Image source={Footer_Base} style={styles.BaseContainer} />
+      <View
+        style={{
+          height: "100%",
+          position: "absolute",
+          bottom: 0,
+          display:'flex',
+          flexDirection:"row",
+          justifyContent:"space-between",
+          width:"100%"
+        }}
+      > 
+      <View style={{display:"flex",width:"100%",position:"absolute",justifyContent:"center",alignItems:"center"}}>
+        <Image source={ProfilePic} style={{position:"absolute",height:60,width:60}}/>
         </View>
-    )
+        <View style={styles.LeftContainer}>
+          <View
+            style={{
+              height: 25,
+              width: 25,
+              backgroundColor: "white",
+              borderRadius: 100,
+              display:"flex",
+              justifyContent:"center",
+              alignItems:"center"
+
+            }}
+          >
+            <Image source={Tick} style={{width:18,height:18}} />
+          </View>
+            <Text style={{color:"#C0A7D8",fontSize:20}}>Recharge</Text>
+        </View>
+        <View style={styles.RightContainer}>
+        <Image source={IndianCurrency} style={{width:30,height:30}} />
+            <Text style={{color:"#C0A7D8",fontSize:20}}>0.00$</Text>
+        </View>
+      </View>
+    </View>
+  );
 }
-const styles=StyleSheet.create({
-    FooterContainer:{
-        flex:1,
-        justifyContent:'space-between',
-        flexDirection:'column',
-        alignItems:'center',
-        paddingLeft:20,
-        paddingRight:20
-    },
-    FooterLogo:{
-        height:50,
-        width:50
-    },
-    FooterLayer:{
-        flex:1,
-        flexDirection:'row',
-        position:"absolute",
-        alignItems:'center',
-        justifyContent:"space-between",
-        width:"100%",
-        bottom:0,
-    },
-    BaseContainer:{
-        height:120,
-        position:"absolute",
-        bottom:0,
-        width:"100%"
-    },
-    MainContainer:{
-        height:120,
-        position:"absolute",
-        bottom:0,
-        width:"100%",
-        flex:1,
-        flexDirection:'row'
-    },
-    LeftContainer:{
-        backgroundColor:"#674F77",
-        height:120,
-        borderTopRightRadius:40,
-        width:"50%"
-    },
-    RightContainer:{
-        backgroundColor:"#674F77",
-        height:120,
-        borderTopLeftRadius:40,
-        width:"50%"
-    }
-})
+const styles = StyleSheet.create({
+  FooterContainer: {
+    flex: 1,
+    justifyContent: "space-between",
+    flexDirection: "column",
+    alignItems: "center",
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+  FooterLogo: {
+    height: 50,
+    width: 50,
+  },
+  FooterLayer: {
+    flex: 1,
+    flexDirection: "row",
+    position: "absolute",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    bottom: 0,
+  },
+  BaseContainer: {
+    height: "100%",
+    // position:"absolute",
+    width: "100%",
+  },
+  MainContainer: {
+    height: "9%",
+    width: "100%",
+    backgroundColor: "transparent",
+    position: "absolute",
+    bottom: 0,
+  },
+  LeftContainer: {
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingLeft: 40,
+    paddingTop:10,
+  },
+  RightContainer: {
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop:10,
+    paddingRight: 40,
+  },
+});

@@ -8,7 +8,7 @@ export default function NumberEnter(){
     const [fontsLoaded] = useFonts({
         'Inter-Light': require('../assets/fonts/Inter-Light.ttf'),
         'Roboto-Flex':require('../assets/fonts/RobotoFlex-Regular.ttf'),
-        'Mont':require('../assets/fonts/Montserrat-black.ttf')
+        'Mont':require('../assets/fonts/Montserrat-Black.ttf')
       });
     
       const onLayoutRootView = useCallback(async () => {

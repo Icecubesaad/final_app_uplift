@@ -32,7 +32,16 @@ export default function App() {
     {
       key: "slide1",
       text: (
-        <Text style={{ fontFamily: "Roboto-Flex", fontSize: 35, marginTop: 20, color: "white", textAlign: "center", fontWeight: "700" }}>
+        <Text
+          style={{
+            fontFamily: "Roboto-Flex",
+            fontSize: 25,
+            marginTop: 20,
+            color: "white",
+            textAlign: "center",
+            fontWeight: "700",
+          }}
+        >
           Im here for you {"\n"} During this tough time
         </Text>
       ),
@@ -41,8 +50,18 @@ export default function App() {
     {
       key: "slide2",
       text: (
-        <Text style={{ fontFamily: "Roboto-Flex", fontSize: 35, marginTop: 20, color: "white", textAlign: "center", fontWeight: "700" }}>
-          <Text style={{ color: "#C0A7D8" }}>Stress</Text> has no {"\n"} boundaries of age, {"\n"} gender, ethnicity, or {"\n"} religion
+        <Text
+          style={{
+            fontFamily: "Roboto-Flex",
+            fontSize: 25,
+            marginTop: 20,
+            color: "white",
+            textAlign: "center",
+            fontWeight: "700",
+          }}
+        >
+          <Text style={{ color: "#C0A7D8" }}>Stress</Text> has no {"\n"}{" "}
+          boundaries of age, {"\n"} gender, ethnicity, or {"\n"} religion
         </Text>
       ),
       image: require("./assets/SecondSliderScreen.png"),
@@ -50,9 +69,19 @@ export default function App() {
     {
       key: "slide3",
       text: (
-        <Text style={{ fontFamily: "Roboto-Flex", fontSize: 35, marginTop: 20, color: "white", textAlign: "center", fontWeight: "700" }}>
-          Stay <Text style={{ color: "#C0A7D8" }}>Happy</Text> and {"\n"} surround yourself {"\n"} with <Text style={{ color: "#C0A7D8" }}>Uplifting</Text>{" "}
-          People.
+        <Text
+          style={{
+            fontFamily: "Roboto-Flex",
+            fontSize: 25,
+            marginTop: 20,
+            color: "white",
+            textAlign: "center",
+            fontWeight: "700",
+          }}
+        >
+          Stay <Text style={{ color: "#C0A7D8" }}>Happy</Text> and {"\n"}{" "}
+          surround yourself {"\n"} with{" "}
+          <Text style={{ color: "#C0A7D8" }}>Uplifting</Text> People.
         </Text>
       ),
       image: require("./assets/ThirdScreenSlider.png"),
@@ -61,16 +90,10 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <SafeAreaView>
-        <AppIntroSlider
-          data={slides}
-          showNextButton={false}
-          showDoneButton={false}
-          renderItem={IntroScreens}
-          dotStyle={{width:15,height:15,backgroundColor:'#C0A7D8',borderRadius:"100%"}}
-          activeDotStyle={{
-            width:20,height:20,backgroundColor:'#C0A7D8',borderRadius:"100%"
-          }}
-        />
+        <View style={{ height: "100%" }}>
+          <PaymentGateway />
+          {/* <Splash/> */}
+        </View>
       </SafeAreaView>
     </SafeAreaProvider>
   );

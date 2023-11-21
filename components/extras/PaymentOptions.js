@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-
+import { View, Text, TouchableOpacity,ScrollView } from "react-native";
+import coupon from '../../assets/Coupon.svg'
+import {Image} from 'expo-image'
 export default function PaymentOptions() {
   return (
     <View
@@ -9,27 +10,44 @@ export default function PaymentOptions() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        height:"80%"
       }}
     >
-        <Text
-          style={{
-            position:"absolute",
-            top:40,
-            color: "white",
-            fontSize: 22,
-            fontFamily: "MontBold",
-            textAlign: "center",
-          }}
-        >
-          Recharge Transaction
-        </Text>
+        <View
+        style={{
+          position: "absolute",
+          top: -40,
+          display: "flex",
+          flexDirection: "row",
+          gap: 20,
+          width:"100%",
+          justifyContent: "center",
+          alignItems: "center",
+          zIndex:999
+        }}
+      >
+        <TouchableOpacity>
+          <Text
+            style={{ fontSize: 24, color: "white", fontFamily: "MontBold" }}
+          >
+            Recharge
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text
+            style={{ fontSize: 24, color: "white", fontFamily: "MontBold" }}
+          >
+            Transaction
+          </Text>
+        </TouchableOpacity>
+      </View>
       <View
         style={{
           backgroundColor: "#724D95",
           borderWidth: 2,
           borderColor: "#C0A7DB",
           borderRadius: 10,
-          width: "auto",
+          width: "80%",
           paddingRight: 10,
           height: 60,
           display: "flex",
@@ -38,7 +56,7 @@ export default function PaymentOptions() {
           paddingLeft: 10,
         }}
       >
-        <Text style={{ color: "white" }}>
+        <Text style={{ color: "white",fontSize:20,textAlign:"center" }}>
           Choose From The Available Recharge Packs:
         </Text>
       </View>
@@ -48,7 +66,7 @@ export default function PaymentOptions() {
           flexDirection: "column",
           paddingLeft: 20,
           paddingRight: 20,
-          gap: 20,
+          gap: 10,
           marginTop: 40,
         }}
       >
@@ -56,7 +74,7 @@ export default function PaymentOptions() {
           <TouchableOpacity
             style={{
               width: "auto",
-              height: 60,
+              height: 40,
               paddingLeft: 20,
               paddingRight: 20,
               backgroundColor: "#724D95",
@@ -64,7 +82,7 @@ export default function PaymentOptions() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              border: "1px solid white",
+              border: "1px solid #C0A7D8",
             }}
           >
             <Text style={{ color: "white" }}>2543$</Text>
@@ -72,7 +90,7 @@ export default function PaymentOptions() {
           <TouchableOpacity
             style={{
               width: "auto",
-              height: 60,
+              height: 40,
               paddingLeft: 20,
               paddingRight: 20,
               backgroundColor: "#724D95",
@@ -80,7 +98,7 @@ export default function PaymentOptions() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              border: "1px solid whtie",
+              border: "1px solid #C0A7D8",
             }}
           >
             <Text style={{ color: "white" }}>2543$</Text>
@@ -88,7 +106,7 @@ export default function PaymentOptions() {
           <TouchableOpacity
             style={{
               width: "auto",
-              height: 60,
+              height: 40,
               paddingLeft: 20,
               paddingRight: 20,
               backgroundColor: "#724D95",
@@ -96,57 +114,7 @@ export default function PaymentOptions() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              border: "1px solid white",
-            }}
-          >
-            <Text style={{ color: "white" }}>2543$</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{ display: "flex", flexDirection: "row", gap: 20 }}>
-          <TouchableOpacity
-            style={{
-              width: "auto",
-              height: 60,
-              paddingLeft: 20,
-              paddingRight: 20,
-              backgroundColor: "#724D95",
-              borderRadius: 10,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              border: "1px solid white",
-            }}
-          >
-            <Text style={{ color: "white" }}>2543$</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              width: "auto",
-              height: 60,
-              paddingLeft: 20,
-              paddingRight: 20,
-              backgroundColor: "#724D95",
-              borderRadius: 10,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              border: "1px solid white",
-            }}
-          >
-            <Text style={{ color: "white" }}>2543$</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              width: "auto",
-              height: 60,
-              paddingLeft: 20,
-              paddingRight: 20,
-              backgroundColor: "#724D95",
-              borderRadius: 10,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              border: "1px solid white",
+              border: "1px solid #C0A7D8",
             }}
           >
             <Text style={{ color: "white" }}>2543$</Text>
@@ -156,7 +124,7 @@ export default function PaymentOptions() {
           <TouchableOpacity
             style={{
               width: "auto",
-              height: 60,
+              height: 40,
               paddingLeft: 20,
               paddingRight: 20,
               backgroundColor: "#724D95",
@@ -164,7 +132,7 @@ export default function PaymentOptions() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              border: "1px solid white",
+              border: "1px solid #C0A7D8",
             }}
           >
             <Text style={{ color: "white" }}>2543$</Text>
@@ -172,7 +140,7 @@ export default function PaymentOptions() {
           <TouchableOpacity
             style={{
               width: "auto",
-              height: 60,
+              height: 40,
               paddingLeft: 20,
               paddingRight: 20,
               backgroundColor: "#724D95",
@@ -180,7 +148,7 @@ export default function PaymentOptions() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              border: "1px solid white",
+              border: "1px solid #C0A7D8",
             }}
           >
             <Text style={{ color: "white" }}>2543$</Text>
@@ -188,7 +156,7 @@ export default function PaymentOptions() {
           <TouchableOpacity
             style={{
               width: "auto",
-              height: 60,
+              height: 40,
               paddingLeft: 20,
               paddingRight: 20,
               backgroundColor: "#724D95",
@@ -196,7 +164,57 @@ export default function PaymentOptions() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              border: "1px solid white",
+              border: "1px solid #C0A7D8",
+            }}
+          >
+            <Text style={{ color: "white" }}>2543$</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ display: "flex", flexDirection: "row", gap: 20 }}>
+          <TouchableOpacity
+            style={{
+              width: "auto",
+              height: 40,
+              paddingLeft: 20,
+              paddingRight: 20,
+              backgroundColor: "#724D95",
+              borderRadius: 10,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              border: "1px solid #C0A7D8",
+            }}
+          >
+            <Text style={{ color: "white" }}>2543$</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              width: "auto",
+              height: 40,
+              paddingLeft: 20,
+              paddingRight: 20,
+              backgroundColor: "#724D95",
+              borderRadius: 10,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              border: "1px solid #C0A7D8",
+            }}
+          >
+            <Text style={{ color: "white" }}>2543$</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              width: "auto",
+              height: 40,
+              paddingLeft: 20,
+              paddingRight: 20,
+              backgroundColor: "#724D95",
+              borderRadius: 10,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              border: "1px solid #C0A7D8",
             }}
           >
             <Text style={{ color: "white" }}>2543$</Text>
@@ -216,7 +234,7 @@ export default function PaymentOptions() {
       >
         <View
           style={{
-            height: "30px",
+            height: 30,
             width: "95%",
             display: "flex",
             border: "2px solid white",
@@ -239,7 +257,7 @@ export default function PaymentOptions() {
         </View>
         <View
           style={{
-            height: "30px",
+            height: 30,
             width: "95%",
             display: "flex",
             border: "2px solid white",
@@ -262,7 +280,7 @@ export default function PaymentOptions() {
         </View>
         <View
           style={{
-            height: "30px",
+            height: 30,
             width: "95%",
             display: "flex",
             border: "2px solid white",
@@ -297,23 +315,24 @@ export default function PaymentOptions() {
           style={{
             backgroundColor: "#724D95",
             width: "auto",
-            height: "50px",
+            height: 50,
             border: "2px solid whtie",
             borderRadius: 8,
-            display:"flex",
-            justifyContent:"center",
-            alignItems:"center"
+            justifyContent:"space-around",
+            alignItems:"center",
+            flexDirection:"row"
           }}
         >
-          <Text style={{ color: "white", paddingLeft: 20, paddingRight: 20 }}>
-            Apply coupons {"\n"}find best offersfor you
+            
+          <Text style={{ color: "white", paddingLeft: 20,fontSize:14, paddingRight: 20,textAlign:"center" }}>
+          <Image source={coupon} style={{height:15,width:15}} />Apply coupons {"\n"}find best offers for you
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={{
             backgroundColor: "#724D95",
             width: "auto",
-            height: "50px",
+            height: 50,
             border: "2px solid whtie",
             borderRadius: 8,
             display:"flex",
@@ -321,7 +340,7 @@ export default function PaymentOptions() {
             alignItems:"center"
           }}
         >
-          <Text style={{ color: "white", paddingLeft: 20, paddingRight: 20 }}>
+          <Text style={{ color: "white", paddingLeft: 20,fontSize:20, paddingRight: 20 }}>
             Recharge
           </Text>
         </TouchableOpacity>
