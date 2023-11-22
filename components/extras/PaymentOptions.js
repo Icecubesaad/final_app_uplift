@@ -2,9 +2,6 @@ import React from "react";
 import { View, Text, TouchableOpacity,ScrollView } from "react-native";
 import coupon from '../../assets/Coupon.svg'
 import {Image} from 'expo-image'
-import {useRouter} from 'expo-router'
-import FInalREchargedScreen from "./FinalRechargedScreen";
-import Transaction from "./Transaction";
 export default function PaymentOptions({change}) {
   return (
     <View
@@ -251,10 +248,10 @@ export default function PaymentOptions({change}) {
             paddingRight: 10,
           }}
         >
-          <Text style={{ color: "white", fontFamily: "Mont", fontSize: 15 }}>
+          <Text style={{ color: "white",  fontSize: 15 }}>
             video calls
           </Text>
-          <Text style={{ color: "white", fontFamily: "Mont", fontSize: 15 }}>
+          <Text style={{ color: "white", fontSize: 15 }}>
             8$
           </Text>
         </View>
@@ -274,10 +271,10 @@ export default function PaymentOptions({change}) {
             paddingRight: 10,
           }}
         >
-          <Text style={{ color: "white", fontFamily: "Mont", fontSize: 15 }}>
+          <Text style={{ color: "white", fontSize: 15 }}>
             video calls
           </Text>
-          <Text style={{ color: "white", fontFamily: "Mont", fontSize: 15 }}>
+          <Text style={{ color: "white", fontSize: 15 }}>
             8$
           </Text>
         </View>
@@ -297,10 +294,10 @@ export default function PaymentOptions({change}) {
             paddingRight: 10,
           }}
         >
-          <Text style={{ color: "white", fontFamily: "Mont", fontSize: 15 }}>
+          <Text style={{ color: "white",  fontSize: 15 }}>
             video calls
           </Text>
-          <Text style={{ color: "white", fontFamily: "Mont", fontSize: 15 }}>
+          <Text style={{ color: "white",  fontSize: 15 }}>
             8$
           </Text>
         </View>

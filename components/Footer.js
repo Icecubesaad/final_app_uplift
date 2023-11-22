@@ -5,7 +5,7 @@ import Footer_Base from "../assets/Footer.svg";
 import IndianCurrency from "../assets/IndianCurrencyLogo.svg";
 import Tick from "../assets/Tick.svg";
 import { TouchableOpacity } from "react-native";
-export default function Footer({change}) {
+export default function Footer({change,open}) {
   return (
     <View style={styles.MainContainer}>
       <Image source={Footer_Base} style={styles.BaseContainer} />
@@ -20,9 +20,9 @@ export default function Footer({change}) {
           width:"100%"
         }}
       > 
-      <View style={{display:"flex",width:"100%",position:"absolute",justifyContent:"center",alignItems:"center"}}>
+      <TouchableOpacity onPress={()=>{open(true)}} style={{display:"flex",width:"100%",position:"absolute",justifyContent:"center",alignItems:"center"}}>
         <Image source={ProfilePic} style={{position:"absolute",height:60,width:60}}/>
-        </View>
+        </TouchableOpacity>
         <View style={styles.LeftContainer}>
           <TouchableOpacity
           onPress={()=>{change(1)}}

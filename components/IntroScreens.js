@@ -1,13 +1,14 @@
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet } from "react-native";
 import { Image } from "expo-image";
 
+import { LinearGradient } from "expo-linear-gradient";
 export default function IntroScreens({item}) {
   return (
-    <View style={styles.Container}>
+    <LinearGradient colors={["#7440AE", "#312537"]} style={styles.Container}>
       <Image source={item.image} style={styles.Image} />
       {item.text}
       {/* <Button/> */}
-    </View>
+    </LinearGradient>
   );
 }
 const styles = StyleSheet.create({
@@ -17,7 +18,6 @@ const styles = StyleSheet.create({
   },
   Container: {
     height: "100%",
-    backgroundColor: "#2d1b46",
     display: "flex",
     justifyContent: "center",
     width:"100%",

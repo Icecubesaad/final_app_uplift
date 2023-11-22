@@ -1,23 +1,23 @@
 import { StyleSheet, Text, View } from "react-native";
-import Header from "./components/Header";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import MainPage from "./components/MainPage";
 import Splash from "./components/Splash";
-import Slider from "./components/Slider";
 import PaymentGateway from "./components/PaymentGateway";
-import Footer from "./components/Footer";
 import IntroScreens from "./components/IntroScreens";
 import NumberEnter from "./components/NumberEnter";
-import IncomingCall from "./components/IncomingCall";
 import OtpInput from "./components/OtpInput";
 import AppIntroSlider from "react-native-app-intro-slider";
 import { useFonts } from "expo-font";
-import { useCallback,useEffect,setTimeout, useState } from "react";
+import { useCallback, useState } from "react";
+import IncomingCall from "./components/IncomingCall";
+import Home from "./components/HomeScreen/Home";
+import Chat from "./components/HomeScreen/Chat";
+import { NavigationContainer } from "@react-navigation/native";
+import ChatStackNavigator from "./components/navigations/navigator";
 export default function App() {
   const [current, setcurrent] = useState(0);
-  const increment=()=>{
-    setcurrent(e=>e+1)
-  }
+  const increment = () => {
+    setcurrent((e) => e + 1);
+  };
   const [fontsLoaded] = useFonts({
     "Inter-Light": require("./assets/fonts/Inter-Light.ttf"),
     "Roboto-Flex": require("./assets/fonts/RobotoFlex-Regular.ttf"),
@@ -45,13 +45,32 @@ export default function App() {
             textAlign: "center",
           }}
         >
-          Im here for you {"\n"} During this tough time
+          Im here for you {"\n"}{" "}
+          <Text style={{ color: "#C0A7D8" }}>During this tough time.</Text>
+        </Text>
+      ),
+      image: require("./assets/Logo.svg"),
+    },
+    {
+      key: "slide2",
+      text: (
+        <Text
+          style={{
+            fontFamily: "Roboto-Flex",
+            fontSize: 25,
+            marginTop: 20,
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          One of every <Text style={{ color: "#C0A7D8" }}>five</Text> people
+          experience a <Text style={{ color: "#C0A7D8" }}>loneliness.</Text>
         </Text>
       ),
       image: require("./assets/firstSliderScreen.png"),
     },
     {
-      key: "slide2",
+      key: "slide3",
       text: (
         <Text
           style={{
@@ -69,7 +88,7 @@ export default function App() {
       image: require("./assets/SecondSliderScreen.png"),
     },
     {
-      key: "slide3",
+      key: "slide4",
       text: (
         <Text
           style={{
@@ -88,16 +107,45 @@ export default function App() {
       image: require("./assets/ThirdScreenSlider.png"),
     },
   ];
-  const listComponent=[<Splash change={setcurrent} />,<AppIntroSlider data={slides} renderItem={IntroScreens} showNextButton={false} onDone={()=>{setcurrent(e=>e+1)}} />,<NumberEnter increment={increment} />,<OtpInput increment={increment}/>,<PaymentGateway change={setcurrent} />]
+  const listComponent = [
+    <Splash change={setcurrent} />,
+    <NumberEnter increment={increment} />,
+    <OtpInput increment={increment} />,
+    <AppIntroSlider
+      data={slides}
+      renderItem={IntroScreens}
+      showNextButton={false}
+      onDone={() => {
+        setcurrent((e) => e + 1);
+      }}
+      dotStyle={{
+        width: 10,
+        height: 10,
+        backgroundColor: "#C0A7D8",
+        borderRadius: 100,
+      }}
+      activeDotStyle={{
+        width: 13,
+        height: 13,
+        backgroundColor: "#C0A7D8",
+        borderRadius: 100,
+      }}
+    />,
+    <PaymentGateway change={setcurrent} />,
+  ];
   return (
-    <SafeAreaProvider>
-      <SafeAreaView>
-        <View style={{ height: "100%" }}>
-          {listComponent[current]}
-          {/* <Splash/> */}
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <SafeAreaProvider>
+        <SafeAreaView>
+          <View style={{ height: "100%" }}>
+            {listComponent[current]}
+            {/* <ChatStackNavigator /> */}
+            {/* <IncomingCall/> */}
+            {/* <Splash/> */}
+          </View>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </NavigationContainer>
   );
 }
 

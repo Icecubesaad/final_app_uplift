@@ -9,7 +9,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "./Header";
 import { useState } from "react";
 import Footer from "./Footer";
+import UserSettings from "./UserSettings";
+import { Image } from "expo-image";
+import ProfliePic from '../assets/ProfilePic.svg'
+
+import { LinearGradient } from "expo-linear-gradient";
 export default function PaymentGateway({change}) {
+  const [OpenUserSettings, setOpenUserSettings] = useState(false);
     const [CurrentComponent, setCurrentComponent] = useState(0);
   const [fontsLoaded] = useFonts({
     "Inter-Light": require("../assets/fonts/Inter-Light.ttf"),
@@ -30,7 +36,7 @@ export default function PaymentGateway({change}) {
   }
 
   return (
-    <View style={{height:"100%"}}>
+    <LinearGradient colors={["#6B41A6", "#442E59"]} style={{height:"100%"}}>
       <Header changeScreen={change} />
       <View style={styles.Container}>
         <View style={styles.ChildContainer}>
@@ -57,8 +63,9 @@ export default function PaymentGateway({change}) {
 }
         </View>
       </View>
-      <Footer change={setCurrentComponent} />
-    </View>
+      {OpenUserSettings?<UserSettings open={setOpenUserSettings}/>:null}
+      <Footer change={setCurrentComponent} open={setOpenUserSettings}  />
+    </LinearGradient>
   );
 }
 const styles = StyleSheet.create({
@@ -70,7 +77,7 @@ const styles = StyleSheet.create({
   },
   ChildContainer: {
     height: "90%",
-    backgroundColor:"#A47ABF",
+    backgroundColor:"rgba(164, 122, 191, 1)",
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
   },

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useFonts } from "expo-font";
-import { SafeAreaView } from "react-native-web";
+import { LinearGradient } from "expo-linear-gradient";
 
 const OtpInput = ({increment}) => {
   const [otp, setOtp] = useState(["", "", "", ""]);
@@ -27,7 +27,8 @@ const OtpInput = ({increment}) => {
     "Inter-Light": require("../assets/fonts/Inter-Light.ttf"),
     "Roboto-Flex": require("../assets/fonts/RobotoFlex-Regular.ttf"),
     Mont: require("../assets/fonts/Montserrat-Light.ttf"),
-    MontBold:require('../assets/fonts/Montserrat-SemiBold.ttf')
+    MontBold:require('../assets/fonts/Montserrat-SemiBold.ttf'),
+    MontMedium: require("../assets/fonts/Montserrat-Medium.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -41,7 +42,7 @@ const OtpInput = ({increment}) => {
   }
 
   return (
-    <View style={styles.mainContainer}>
+    <LinearGradient colors={["#6B41A6", "#442E59"]} style={styles.mainContainer}>
        <Text
           style={{
             color: "#C0A7D8",
@@ -89,7 +90,7 @@ const OtpInput = ({increment}) => {
           style={{
             color: "#353535",
             fontSize: 14,
-            fontFamily: "Mont",
+            fontFamily: "MontMedium",
             textAlign: "center",
           }}
         >
@@ -109,7 +110,8 @@ const OtpInput = ({increment}) => {
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#473553",
-            boxShadow: "0px 4px 10px 1px rgba(183, 183, 183, 0.25)",
+            shadowColor: "rgba(192, 167, 216, 1)",
+    elevation:10
           }}
         >
           <Text style={{ color: "white", fontFamily: "Mont", fontSize: 15 }}>
@@ -121,7 +123,7 @@ const OtpInput = ({increment}) => {
         By continuing you’re indicating that you accept {"\n"} our <Text>Terms of Use</Text> and our <Text>Privacy Policy</Text>
         </Text>
         </View>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -129,7 +131,8 @@ const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: "#7440AE",
     height: "100%",
-    paddingTop: 20,
+    display:"flex",
+    justifyContent:"center"
   },
   container: {
     flexDirection: "row",
