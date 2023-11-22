@@ -1,9 +1,16 @@
 import { Text, View ,TouchableOpacity,ScrollView} from "react-native";
 import Credited from "../cards/Credited";
 import Debited from "../cards/Debited";
-export default function Transaction() {
+export default function Transaction({change}) {
   return (
-    <View>
+    <View style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height:"100%",
+        marginTop:80
+      }}>
          <View
         style={{
           position: "absolute",
@@ -16,9 +23,9 @@ export default function Transaction() {
           alignItems: "center",
         }}
       >
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{change(1)}}>
           <Text
-            style={{ fontSize: 24, color: "white", fontFamily: "MontBold" }}
+            style={{ fontSize: 24, color: "black", fontFamily: "MontBold" }}
           >
             Recharge
           </Text>

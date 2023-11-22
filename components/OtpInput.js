@@ -9,7 +9,7 @@ import {
 import { useFonts } from "expo-font";
 import { SafeAreaView } from "react-native-web";
 
-const OtpInput = () => {
+const OtpInput = ({increment}) => {
   const [otp, setOtp] = useState(["", "", "", ""]);
   const inputs = useRef([]);
 
@@ -46,7 +46,6 @@ const OtpInput = () => {
           style={{
             color: "#C0A7D8",
             fontFamily: "MontBold",
-            fontWeight: 400,
             fontSize: 30,
             letterSpacing: -1.68,
             textAlign: "center",
@@ -99,6 +98,7 @@ const OtpInput = () => {
 
         <View style={{display:"flex",alignItems:"center"}}>
         <TouchableOpacity
+        onPress={()=>{increment()}}
           style={{
             width: "90%",
             border: "1px solid white",
@@ -117,10 +117,9 @@ const OtpInput = () => {
           </Text>
         </TouchableOpacity>
         <Text style={{color:"white",
-        marginTop:20,fontFamily:"Mont",fontSize:12,fontWeight:500}}>
+        marginTop:20,fontFamily:"Mont",fontSize:12}}>
         By continuing you’re indicating that you accept {"\n"} our <Text>Terms of Use</Text> and our <Text>Privacy Policy</Text>
         </Text>
-        
         </View>
     </View>
   );

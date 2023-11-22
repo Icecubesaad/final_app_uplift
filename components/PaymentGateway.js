@@ -7,8 +7,10 @@ import Transaction from "./extras/Transaction";
 import FInalREchargedScreen from "./extras/FinalRechargedScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "./Header";
+import { useState } from "react";
 import Footer from "./Footer";
-export default function PaymentGateway() {
+export default function PaymentGateway({change}) {
+    const [CurrentComponent, setCurrentComponent] = useState(0);
   const [fontsLoaded] = useFonts({
     "Inter-Light": require("../assets/fonts/Inter-Light.ttf"),
     "Roboto-Flex": require("../assets/fonts/RobotoFlex-Regular.ttf"),
@@ -29,20 +31,33 @@ export default function PaymentGateway() {
 
   return (
     <View style={{height:"100%"}}>
-      <Header />
+      <Header changeScreen={change} />
       <View style={styles.Container}>
         <View style={styles.ChildContainer}>
-          {/* <View style={styles.TextContainer}>
-            <Text style={{...styles.ChildContainerText,color:"black"}}>Recharged</Text>
-            <Text style={styles.ChildContainerText}>Your Account</Text>
-            <Text style={{...styles.ChildContainerText,fontSize:30}}>R ₹ <Text style={{color:"red", fontSize:30}}>0.00</Text></Text>
-            </View> */}
-          <PaymentOptions/>
-          {/* <Transaction/> */}
-          {/* <FInalREchargedScreen /> */}
+            {
+  CurrentComponent === 0 ? (
+    <>
+      <View style={styles.TextContainer}>
+        <Text style={{ ...styles.ChildContainerText, color: "black" }}>
+          Recharged
+        </Text>
+        <Text style={styles.ChildContainerText}>Your Account</Text>
+        <Text style={{ ...styles.ChildContainerText, fontSize: 30 }}>
+          R ₹ <Text style={{ color: "red", fontSize: 30 }}>0.00</Text>
+        </Text>
+      </View>
+    </>
+  ) : CurrentComponent === 1 ? (
+    <PaymentOptions change={setCurrentComponent} />
+  ) : CurrentComponent === 2 ? (
+    <Transaction change={setCurrentComponent} />
+  ) : CurrentComponent === 3 ? (
+    <FInalREchargedScreen  />
+  ) : null
+}
         </View>
       </View>
-      <Footer/>
+      <Footer change={setCurrentComponent} />
     </View>
   );
 }
@@ -55,19 +70,18 @@ const styles = StyleSheet.create({
   },
   ChildContainer: {
     height: "90%",
-    backgroundColor:"#C0A7D8",
+    backgroundColor:"#A47ABF",
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
   },
   ChildContainerText: {
     color: "#FFF",
-    fontFamily: "",
     fontSize: 28,
-    fontWeight: 600,
     fontFamily: "MontMedium",
   },
   TextContainer: {
     marginLeft: "auto",
     marginRight: "auto",
+    marginTop:120
   },
 });

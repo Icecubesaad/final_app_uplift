@@ -1,9 +1,11 @@
 import { Image } from "expo-image";
 import { View, Text, TouchableOpacity } from "react-native";
-import Tick from "../../assets/Tick.svg";
+import Tick from "../../assets/WhiteTick.svg";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
-export default function FInalREchargedScreen() {
+import bigradial from '../../assets/bigradial.svg'
+import smallradial from '../../assets/smallradial.svg'
+export default function FInalREchargedScreen({change}) {
   const [fontsLoaded] = useFonts({
     "Inter-Light": require("../../assets/fonts/Inter-Light.ttf"),
     "Roboto-Flex": require("../../assets/fonts/RobotoFlex-Regular.ttf"),
@@ -21,11 +23,11 @@ export default function FInalREchargedScreen() {
     return null;
   }
   return (
-    <View>
+    <View style={{height:"100%"}}>
       <View
         style={{
           position: "absolute",
-          top: -120,
+          top: -40,
           display: "flex",
           flexDirection: "row",
           gap: 20,
@@ -34,20 +36,9 @@ export default function FInalREchargedScreen() {
           alignItems: "center",
         }}
       >
-        <TouchableOpacity>
-          <Text
-            style={{ fontSize: 24, color: "white", fontFamily: "MontBold" }}
-          >
-            Recharge
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text
-            style={{ fontSize: 24, color: "white", fontFamily: "MontBold" }}
-          >
-            Transaction
-          </Text>
-        </TouchableOpacity>
+        <Image source={bigradial} style={{height:150,width:150}}/>
+        <Image source={smallradial} style={{height:150,width:150,position:"absolute"}} />
+        <Image source={Tick} style={{height:60,width:60,position:"absolute"}} />
       </View>
       <View
         style={{

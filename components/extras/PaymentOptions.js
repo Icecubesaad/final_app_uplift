@@ -2,7 +2,10 @@ import React from "react";
 import { View, Text, TouchableOpacity,ScrollView } from "react-native";
 import coupon from '../../assets/Coupon.svg'
 import {Image} from 'expo-image'
-export default function PaymentOptions() {
+import {useRouter} from 'expo-router'
+import FInalREchargedScreen from "./FinalRechargedScreen";
+import Transaction from "./Transaction";
+export default function PaymentOptions({change}) {
   return (
     <View
       style={{
@@ -33,9 +36,9 @@ export default function PaymentOptions() {
             Recharge
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{change(2)}}>
           <Text
-            style={{ fontSize: 24, color: "white", fontFamily: "MontBold" }}
+            style={{ fontSize: 24, color: "black", fontFamily: "MontBold" }}
           >
             Transaction
           </Text>
@@ -340,9 +343,9 @@ export default function PaymentOptions() {
             alignItems:"center"
           }}
         >
-          <Text style={{ color: "white", paddingLeft: 20,fontSize:20, paddingRight: 20 }}>
-            Recharge
-          </Text>
+          <TouchableOpacity onPress={()=>{change(3)}} style={{ color: "white", paddingLeft: 20,fontSize:20, paddingRight: 20 }}>
+            <Text style={{color:"white"}}>Recharge</Text>
+          </TouchableOpacity>
         </TouchableOpacity>
       </View>
     </View>

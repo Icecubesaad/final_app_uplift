@@ -12,8 +12,12 @@ import IncomingCall from "./components/IncomingCall";
 import OtpInput from "./components/OtpInput";
 import AppIntroSlider from "react-native-app-intro-slider";
 import { useFonts } from "expo-font";
-import { useCallback } from "react";
+import { useCallback,useEffect,setTimeout, useState } from "react";
 export default function App() {
+  const [current, setcurrent] = useState(0);
+  const increment=()=>{
+    setcurrent(e=>e+1)
+  }
   const [fontsLoaded] = useFonts({
     "Inter-Light": require("./assets/fonts/Inter-Light.ttf"),
     "Roboto-Flex": require("./assets/fonts/RobotoFlex-Regular.ttf"),
@@ -39,7 +43,6 @@ export default function App() {
             marginTop: 20,
             color: "white",
             textAlign: "center",
-            fontWeight: "700",
           }}
         >
           Im here for you {"\n"} During this tough time
@@ -57,7 +60,6 @@ export default function App() {
             marginTop: 20,
             color: "white",
             textAlign: "center",
-            fontWeight: "700",
           }}
         >
           <Text style={{ color: "#C0A7D8" }}>Stress</Text> has no {"\n"}{" "}
@@ -76,7 +78,6 @@ export default function App() {
             marginTop: 20,
             color: "white",
             textAlign: "center",
-            fontWeight: "700",
           }}
         >
           Stay <Text style={{ color: "#C0A7D8" }}>Happy</Text> and {"\n"}{" "}
@@ -87,11 +88,12 @@ export default function App() {
       image: require("./assets/ThirdScreenSlider.png"),
     },
   ];
+  const listComponent=[<Splash change={setcurrent} />,<AppIntroSlider data={slides} renderItem={IntroScreens} showNextButton={false} onDone={()=>{setcurrent(e=>e+1)}} />,<NumberEnter increment={increment} />,<OtpInput increment={increment}/>,<PaymentGateway change={setcurrent} />]
   return (
     <SafeAreaProvider>
       <SafeAreaView>
         <View style={{ height: "100%" }}>
-          <PaymentGateway />
+          {listComponent[current]}
           {/* <Splash/> */}
         </View>
       </SafeAreaView>
