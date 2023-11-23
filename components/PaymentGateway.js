@@ -38,7 +38,7 @@ export default function PaymentGateway({change}) {
   return (
     <LinearGradient colors={["#6B41A6", "#442E59"]} style={{height:"100%"}}>
       <Header changeScreen={change} />
-      <View style={styles.Container}>
+      <LinearGradient colors={["#6B41A6", "#442E59"]}  style={styles.Container}>
         <View style={styles.ChildContainer}>
             {
   CurrentComponent === 0 ? (
@@ -62,7 +62,7 @@ export default function PaymentGateway({change}) {
   ) : null
 }
         </View>
-      </View>
+      </LinearGradient>
       {OpenUserSettings?<UserSettings open={setOpenUserSettings}/>:null}
       <Footer change={setCurrentComponent} open={setOpenUserSettings}  />
     </LinearGradient>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   },
   ChildContainer: {
     height: "90%",
-    backgroundColor:"rgba(164, 122, 191, 1)",
+    backgroundColor:"#A47ABF",
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
   },

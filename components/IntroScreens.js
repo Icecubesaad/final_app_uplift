@@ -13,8 +13,8 @@ export default function IntroScreens({item}) {
 }
 const styles = StyleSheet.create({
   Image: {
-    width: 300,
-    height: 300,
+    width: 260,
+    height: 260,
   },
   Container: {
     height: "100%",

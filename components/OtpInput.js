@@ -42,10 +42,10 @@ const OtpInput = ({increment}) => {
   }
 
   return (
-    <LinearGradient colors={["#6B41A6", "#442E59"]} style={styles.mainContainer}>
+    <LinearGradient colors={["#7440AE", "#312537"]} style={styles.mainContainer}>
        <Text
           style={{
-            color: "#C0A7D8",
+            color: "rgba(192, 167, 216, 1)",
             fontFamily: "MontBold",
             fontSize: 30,
             letterSpacing: -1.68,

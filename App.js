@@ -9,10 +9,7 @@ import AppIntroSlider from "react-native-app-intro-slider";
 import { useFonts } from "expo-font";
 import { useCallback, useState } from "react";
 import IncomingCall from "./components/IncomingCall";
-import Home from "./components/HomeScreen/Home";
-import Chat from "./components/HomeScreen/Chat";
 import { NavigationContainer } from "@react-navigation/native";
-import ChatStackNavigator from "./components/navigations/navigator";
 export default function App() {
   const [current, setcurrent] = useState(0);
   const increment = () => {
@@ -20,7 +17,8 @@ export default function App() {
   };
   const [fontsLoaded] = useFonts({
     "Inter-Light": require("./assets/fonts/Inter-Light.ttf"),
-    "Roboto-Flex": require("./assets/fonts/RobotoFlex-Regular.ttf"),
+    "Roboto-Flex": require("./assets/fonts/Roboto-Medium.ttf"),
+    "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -41,6 +39,7 @@ export default function App() {
             fontFamily: "Roboto-Flex",
             fontSize: 25,
             marginTop: 20,
+            fontWeight:700,
             color: "white",
             textAlign: "center",
           }}

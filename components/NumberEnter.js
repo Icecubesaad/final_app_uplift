@@ -16,7 +16,9 @@ export default function NumberEnter({ increment }) {
   const [fontsLoaded] = useFonts({
     "Inter-Light": require("../assets/fonts/Inter-Light.ttf"),
     "Roboto-Flex": require("../assets/fonts/RobotoFlex-Regular.ttf"),
-    Mont: require("../assets/fonts/Montserrat-Black.ttf"),
+    Mont: require("../assets/fonts/Montserrat-Light.ttf"),
+    MontBold: require("../assets/fonts/Montserrat-SemiBold.ttf"),
+    MontMedium: require("../assets/fonts/Montserrat-Medium.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -45,8 +47,8 @@ export default function NumberEnter({ increment }) {
       <Text
         style={{
           color: "#C0A7D8",
-          fontFamily: "Mont",
-          fontSize: 34,
+          fontFamily: "MontBold",
+          fontSize: 30,
           letterSpacing: -1.68,
           textAlign: "center",
           marginTop: 10,
@@ -58,8 +60,7 @@ export default function NumberEnter({ increment }) {
       <Text
         style={{
           fontFamily: "Mont",
-          fontSize: 20,
-          letterSpacing: 0.48,
+          fontSize: 16,
           color: "white",
           textAlign: "center",
           marginBottom: 10,
